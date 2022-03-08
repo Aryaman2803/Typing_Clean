@@ -79,6 +79,7 @@ app.use(express.urlencoded({ extended: false }))
 // app.get('/', (req, res) => {
 //   res.send('hompage')
 // })
+
 app.use('/api', userRoute)
 app.use('/api/dashboard/', notesRoute)
 
