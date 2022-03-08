@@ -27,20 +27,7 @@ function App() {
             <Route path='/dashboard' element={<Dashboard />}>
               <Route path='/dashboard/:id' element={<Modal />} />
             </Route>
-            {/* <Route
-          path='/dashboard'
-          element={
-            <ProtectedRoutes>
-            <Dashboard />
-            </ProtectedRoutes>
-          }
-        ></Route> */}
           </Routes>
-          {state?.background && (
-            <Routes>
-              {/* <Route path='/api/dashboard/:id' element={<Modal />} /> */}
-            </Routes>
-          )}
         </div>
       </ThemeProvider>
     </userNotesContext.Provider>
