@@ -22,7 +22,7 @@ const Note = ({ note }) => {
     <section className='single-note-wrapper'>
       <Link
         key={note._id}
-        to={`/api/dashboard/${note._id}`}
+        to={`/dashboard/${note._id}`}
         state={{ background: location }}
         className='note-link'
       >
