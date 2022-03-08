@@ -56,7 +56,7 @@ function Home() {
               </Box>
             </div>
             <div className='right-split'>
-              <img src='/images/fullPageSS.PNG' alt='screeenshot' />
+              <img src='/images/fullPageSS.png' alt='screeenshot' />
             </div>
           </div>
           <div className='split-container'>
