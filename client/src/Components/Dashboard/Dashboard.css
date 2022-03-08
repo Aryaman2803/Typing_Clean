@@ -1,0 +1,246 @@
+/* Dashboard .js  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* border: 11px solid teal; */
+    /* min-height: 100%; */
+    background-color: #fafafa;
+}
+
+.notes-wrapper {
+    box-sizing: border-box;
+
+
+
+    /* overflow: hidden; */
+}
+
+.notes-container {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 100vh; */
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media(max-width: 500px) {
+
+    .notes-container {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+
+/* Note.js css */
+.single-note {
+    /* border: 1px solid limegreen; */
+    width: 280px;
+    /* height: 300px; */
+    min-height: 150px;
+    max-height: 300px;
+    padding: 4px 16px 12px 16px;
+    letter-spacing: .01428571em;
+    font-family: inherit;
+    padding-bottom: 4px;
+    overflow: hidden;
+    margin: 1rem auto;
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    color: #282C35;
+    /* border: solid transparent; */
+    border-width: 1px 1px 1px 6px;
+    transition: transform 300ms ease-in-out 0s;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.single-note-wrapper {
+    margin: 1rem auto;
+}
+
+.note-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgb(192, 190, 190);
+    letter-spacing: 0.00625em;
+    padding-top: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.note-body {
+    letter-spacing: .01428571em;
+    font-family: inherit;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 13;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.note-link {
+    text-decoration: none;
+    color: #282C35;
+}
+
+/** Note Modal CSS */
+.modal-wrapper {
+    padding: 0 !important;
+    border-radius: 10px;
+    transition: transform 300ms ease-in-out 0s;
+    max-width: 600px;
+    min-width: 300px;
+    box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+    transition: box-shadow 0.218s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.218s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+[data-reach-dialog-overlay] {
+    z-index: 9999;
+}
+
+@media(max-width: 500px) {
+    .modal-wrapper {
+        min-width: 90%;
+    }
+}
+
+.modal-wrapper-inner {
+    max-height: 700px;
+    min-height: 130px;
+    min-width: 300px;
+    /* max-width: 600px; */
+    padding: 0.8rem 0px 0.8rem 0.8rem;
+    overflow-y: initial !important;
+    border-radius: 8px;
+    border: 1px solid palegoldenrod;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.sc1::-webkit-scrollbar {
+    width: 9px;
+    height: 8px;
+}
+
+.sc1::-webkit-scrollbar-track {
+    background-color: rgba(241, 241, 241, 0.9);
+    border-radius: 5px;
+
+}
+
+.sc1::-webkit-scrollbar-thumb {
+    background-color: #eeeded;
+    border-radius: 10px;
+    border-width: 1px 1px 1px 2px;
+}
+
+.modal-edit-title {
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+    font-size: 1.375rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.75rem;
+    padding-top: 16px;
+}
+
+.modal-edit-body {
+    color: #202124;
+    direction: ltr;
+    font-family: 'Roboto', arial, sans-serif;
+    font-size: 15px;
+    overflow-y: auto;
+    margin-bottom: 2.3rem;
+    letter-spacing: .00625em;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+
+
+}
+
+.modal-toolbar {
+    position: absolute;
+    line-height: 50px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+
+/* Add new Note  */
+.addNote-wrapper {}
+
+.addNote-container {
+    width: 600px;
+    margin: 32px auto 16px auto;
+    transition-duration: 0.218s;
+    /* padding: 10px 15px; */
+    -webkit-box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+    border: 1px solid transparent;
+    border-color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+}
+
+@media(max-width: 500px) {
+    .addNote-container {
+        width: 85%;
+    }
+}
+
+
+.addNote-Title {
+    font-family: 'Open Sans', 'Roboto', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    line-height: 1.75rem;
+    padding: 10px 15px;
+    /* padding-top: 12px; */
+    min-height: 35px;
+    transition-duration: 10.218s;
+}
+
+.addNote-Body {
+    /* padding: 10px 15px; */
+    letter-spacing: .05rem;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    color: #202124;
+    min-height: 46px;
+    transition-duration: 10.218s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.addNote-Body-padding-close {
+    padding: 10px 15px;
+}
+.addNote-Body-padding-open {
+    padding: 0;
+}
+.DraftEditor-root-open{
+    /* padding: 10px 15px; */
+}
+.DraftEditor-root:nth-last-of-type(2) {
+    /* padding: 0.6rem 0; */
+    padding: 10px 15px;
+}

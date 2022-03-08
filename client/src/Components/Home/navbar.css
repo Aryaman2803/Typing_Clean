@@ -1,0 +1,18 @@
+.navbar-appbar {
+    background-color: #323132;
+    max-width: 65%;
+    box-shadow: none;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .navbar-appbar {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar-appbar {
+        max-width: 100%;
+    }
+}
