@@ -16,8 +16,8 @@ const PORT = process.env.PORT
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET
 const colors = require('colors')
-const notesRoute = require('./routes/notesRoute')
-const userRoute = require('./routes/userRoute')
+const notesRoute = require('./Routes/notesRoute')
+const userRoute = require('./Routes/userRoute')
 const { errorHandler } = require('./middleware/errorMiddleware')
 const cookieParser = require('cookie-parser')
 
@@ -85,7 +85,7 @@ app.use('/api/dashboard/', notesRoute)
 
 //Serve frontend
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname,'../client/build')))
+  app.use(express.static(path.join(__dirname, '../client/build')))
   app.get('*', (req, res) => {
     res.sendFile(
       path.resolve(__dirname, '../', 'client', 'build', 'index.html')
